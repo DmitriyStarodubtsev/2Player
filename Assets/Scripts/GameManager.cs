@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public GameObject player1;
@@ -14,8 +14,9 @@ public class GameManager : MonoBehaviour
     public GameObject p2Wins;
     public GameObject[] p1Sticks;
     public GameObject[] p2Sticks;
-
     public AudioSource hurtSound;
+    public string mainMenu;
+
 
 
     void Start()
@@ -38,6 +39,14 @@ public class GameManager : MonoBehaviour
         player2.SetActive(false);
         p2Wins.SetActive(true);
          //Time.timeScale = 0;
+        }
+        if(Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene(mainMenu); 
         }
     }
     public void HurtP1()
